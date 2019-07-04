@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module } from '@nestjs/common'
+import { ProductsModule } from './products/products.module'
+import { MongooseModule } from '@nestjs/mongoose/dist/mongoose.module'
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+    imports: [
+        ProductsModule,
+        MongooseModule.forRoot('mongodb://hello:hello12@ds247637.mlab.com:47637/nestjs-hello-world')
+    ]
 })
-export class AppModule {}
+export class AppModule { }
